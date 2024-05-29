@@ -4,19 +4,26 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        Scanner sc= new Scanner(System.in);
+        int X = sc.nextInt();//총 금액
+        int N = sc.nextInt();//종류 수
+        int total = 0;
 
-        int a = in.nextInt();
-        in.close();
-        int sum = 0;
+        for(int i = 0; i < N; i++){
+            int a = sc.nextInt();//가격
+            int b = sc.nextInt();//개수
 
-        for(int i = 1; i <= a; i++){
-            sum += i;
+            total += a * b;
         }
-        System.out.println(sum);
+        if(total == X){
+            System.out.println("Yes");
+        }else{
+            System.out.println("No");
+        }
     }
 }
 
-//n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램을 구하라
-//첫째 줄에 n (1 ≤ n ≤ 10,000)이 주어진다.
-//1부터 n까지 합을 출력
+//구매한 각 물건의 가격과 개수
+//구매한 물건들의 총 금액
+//구매한 물건 가격 개수로 게산한 총 금액이 영수증에 적힌 총 금액과 일치하는지
+//일치하면 Yes 불일치하면 No
