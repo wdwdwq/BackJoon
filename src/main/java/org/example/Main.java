@@ -7,18 +7,18 @@ public class Main {
 
         Scanner in = new Scanner(System.in);
 
-        int a = in.nextInt();
+        int T = in.nextInt();
 
-        for (int i = 1; i <= a; i++) {
-            int c = in.nextInt();
-            int d = in.nextInt();
+        for(int i =1; i <= T; i++){
+            int A = in.nextInt();
+            int B = in.nextInt();
 
-            System.out.println("Case #" + i + ": " + (c + d));
+            System.out.println("Case #" + i + ": " + A + " + " + B + " = " + (A+B));
         }
 
         in.close();
     }
 }
 
-//출력마다 "Case #x;" A+B를 출력
+//출력마다 "Case #x: A + B = C" A+B를 출력
 
