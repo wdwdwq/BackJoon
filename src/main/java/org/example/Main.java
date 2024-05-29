@@ -4,21 +4,19 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String args[]) {
-
         Scanner in = new Scanner(System.in);
 
-        int T = in.nextInt();
-
-        for(int i =1; i <= T; i++){
-            int A = in.nextInt();
-            int B = in.nextInt();
-
-            System.out.println("Case #" + i + ": " + A + " + " + B + " = " + (A+B));
-        }
-
+        int n = in.nextInt();
         in.close();
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
 }
 
-//출력마다 "Case #x: A + B = C" A+B를 출력
+
 
