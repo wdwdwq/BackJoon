@@ -3,16 +3,22 @@ package org.example;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String args[]) {
 
-        int n = sc.nextInt();
-        String str = "";
-        sc.close();
+        Scanner in = new Scanner(System.in);
 
-        for(int i=1; i<=n/4; i++){
-            str += "long ";
+        int a = in.nextInt();
+
+        for (int i = 1; i <= a; i++) {
+            int c = in.nextInt();
+            int d = in.nextInt();
+
+            System.out.println("Case #" + i + ": " + (c + d));
         }
-        System.out.println(str + "int");
+
+        in.close();
     }
 }
+
+//출력마다 "Case #x;" A+B를 출력
+
