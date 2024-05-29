@@ -4,22 +4,19 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner in = new Scanner(System.in);
 
-        int c = in.nextInt();
-        int arr[] = new int[c];
-
-        for(int i = 0; i < c; i++){
-            int a = in.nextInt();
-            int b = in.nextInt();
-            arr[i] = a + b;
-        }
+        int a = in.nextInt();
         in.close();
+        int sum = 0;
 
-        for(int k : arr){
-            System.out.println(k);
+        for(int i = 1; i <= a; i++){
+            sum += i;
         }
+        System.out.println(sum);
     }
 }
-// 배열 arr 안에 각 쌍 합을 계산 값이 저장되고 정수를 입력한만큼 저장된다
+
+//n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램을 구하라
+//첫째 줄에 n (1 ≤ n ≤ 10,000)이 주어진다.
+//1부터 n까지 합을 출력
