@@ -1,28 +1,23 @@
 package org.example;
 
-import java.io.*;
-import java.util.StringTokenizer;
-
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String [] args) throws IOException {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        while (true){
 
-        int N = Integer.parseInt(br.readLine()); //N은 입력 받을 줄의 개수
+            int A = in.nextInt();
+            int B = in.nextInt();
 
-        StringTokenizer st ;
-
-        for(int i = 0; i < N; i++){
-            st = new StringTokenizer(br.readLine()," ");
-            bw.write((Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()))+ "\n");
+            if(A == 0 && B == 0){
+                in.close();
+                break;
+            }
+            System.out.println(A+B);
         }
-        br.close();
 
-        bw.flush(); // 한 번에 값을 출력할 때 사용
-        bw.close();
     }
 }
-
-// 별 찍기 반대로
+// 문제는 A+B를 출력하고 0, 0을 누르면 프로그램을 종료
