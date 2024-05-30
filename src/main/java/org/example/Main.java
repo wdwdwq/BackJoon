@@ -1,19 +1,30 @@
 package org.example;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args)  {
+    public static void main(String [] args) throws IOException {
 
-        Scanner in = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st;
+        String str;
 
-        while (in.hasNextInt()){
 
-            int a = in.nextInt();
-            int b = in.nextInt();
+        while( (str=br.readLine()) != null ){
+
+            st = new StringTokenizer(str," ");
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            sb.append(a+b).append("\n");
             System.out.println(a+b);
+
         }
-        in.close();
+        System.out.print(sb);
+        br.close();
     }
 }
 
