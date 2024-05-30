@@ -1,23 +1,28 @@
 package org.example;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
         int count = 0; // b와 일치할 시 갯수를 올리는 변수
-        int N = sc.nextInt(); // 배열의 길이를 설정
+        int N = Integer.parseInt(br.readLine()); // 배열의 길이를 설정
         int[] arr = new int[N]; // 배열 생성, 길이는 N만큼
 
         // 배열의 요소들을 입력받기
+        st = new StringTokenizer(br.readLine());
         for(int i = 0; i < N; i++) {
-            arr[i] = sc.nextInt(); // 배열에 입력한 정수들 넣어주기
+            arr[i] = Integer.parseInt(st.nextToken());; // 배열에 입력한 정수들 넣어주기
         }
 
-        int b = sc.nextInt(); // [문제] 입력 세번째 줄 정수
+        int b = Integer.parseInt(br.readLine()); // [문제] 입력 세번째 줄 정수
 
         // 배열을 순회하면서 변수 b와 같은 숫자 찾기
         for(int num : arr) {
