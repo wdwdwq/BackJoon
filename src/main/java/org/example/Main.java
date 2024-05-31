@@ -1,41 +1,64 @@
 package org.example;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
+        System.out.println("==프로그램 시작==");
 
-        int count = 0; // b와 일치할 시 갯수를 올리는 변수
-        int N = Integer.parseInt(br.readLine()); // 배열의 길이를 설정
-        int[] arr = new int[N]; // 배열 생성, 길이는 N만큼
+        Scanner sc = new Scanner(System.in);
 
-        // 배열의 요소들을 입력받기
-        st = new StringTokenizer(br.readLine());
-        for(int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());; // 배열에 입력한 정수들 넣어주기
-        }
+        int lastArticleId = 0;
 
-        int b = Integer.parseInt(br.readLine()); // [문제] 입력 세번째 줄 정수
+        List<Article> articles = new ArrayList<>();
 
-        // 배열을 순회하면서 변수 b와 같은 숫자 찾기
-        for(int num : arr) {
-            if(b == num) {
-                count++;
+        while (true) {
+            System.out.print("명령어) "); //
+            String cmd = sc.nextLine().trim();
+
+            if (cmd.isBlank()) { //빈문자열, 사용자가 공백 문자만 입력한 경우 \t,\n등
+                System.out.println("명령어를 입력해주세요");
+                continue;
+            }
+
+            switch (cmd) {
+                case "exit":
+                    System.out.println("==프로그램 끝==");
+                    sc.close();
+                    return;
+                case "article write":
+                    lastArticleId++;
+
+                    System.out.print("제목:");
+                    String title = sc.nextLine();
+                    System.out.print("내용:");
+                    String body = sc.nextLine();
+
+                    Article article = new Article(lastArticleId, title, body);
+                    articles.add(article);
+
+                    System.out.println(lastArticleId + "번 게시물이 생성되었습니다");
+                    break;
+
+                case "article list":
+                    if(articles.isEmpty()){// 리스트가 비어있으면 ture이기 때문에
+                        System.out.println("게시물이 존재하지 않습니다");
+                    }else{
+                        System.out.println("번호\t\t제목\t\t내용");
+                        for(int i = articles.size() - 1; i >= 0; i--){
+                            Article articleItem = articles.get(i);
+                            System.out.printf("%d\t\t\t%s\t\t\t%s\n", articleItem.id, articleItem.title, articleItem.body);
+                        }
+                    }
+                    break;
+                default:
+                    System.out.print("존재하지 않는 명령어입니다\n");
             }
         }
-
-        System.out.println(count);
     }
-}
+    }
 
-
-// 첫번째 줄에 배열의 길이를 설정
-// 두번째 줄에 각 요소를 입력
-// 세번째 줄에 입력한 숫자가 배열의 몇번 등장하는지 찾는다
